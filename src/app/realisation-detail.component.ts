@@ -1,25 +1,29 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location }               from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'realisation-detail',
-  templateUrl: './realisation-detail.component.html',
-  styleUrls: [ './realisation-detail.component.css' ]
+    selector: 'realisation-detail',
+    templateUrl: './realisation-detail.component.html',
+    styleUrls: ['./realisation-detail.component.css']
 })
 export class RealisationDetailComponent implements OnInit {
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location
-  ) {}
+    constructor(
+        private location: Location,
+        private router: Router
+    ) { }
 
-  ngOnInit(): void {
-      
-  }
+    ngOnInit(): void {
 
-  goBack(): void {
-    this.location.back();
-  }
+    }
+
+    goBack(): void {
+        this.location.back();
+    }
+
+    gotoJavaCompetence(): void {
+        this.router.navigate(['/competence/technique']);
+    }
 }
